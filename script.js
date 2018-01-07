@@ -2,6 +2,8 @@ document.onload = function() {
   var timer = 0;
   var power = 1;
 
+  var running = false;
+
   var timerPressed = false;
   var timerRotation = 0;
 
@@ -55,16 +57,20 @@ document.onload = function() {
 
   start.onclick = function(e) {
     if (timerRotation > 0) {
-      door.style.backgroundColor = "yellow";
+      start.innerHTML = "Stop";
+      door.style.backgroundColor = "Goldenrod";
       var interval = setInterval(function() {
         timerRotation -= 6;
         timer = Math.ceil(timerRotation / 6);
-        timerEl.style.transform = "rotate(" + Math.max(0, timerRotation) + "deg)";
-        timerData.innerHTML = timer;
         if (timerRotation <= 0) {
           clearInterval(interval);
           door.style.backgroundColor = "grey";
+          timer = 0;
+          timerRotation = 0;
+          start.innerHTML = "Start";
         }
+        timerEl.style.transform = "rotate(" + Math.max(0, timerRotation) + "deg)";
+        timerData.innerHTML = timer;
       }, 1000);
     }
   }
