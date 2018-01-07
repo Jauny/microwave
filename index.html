@@ -1,0 +1,95 @@
+<style type="text/css">
+  .microwave {
+    position: relative;
+    width: 300px;
+    background-color: black;
+    height: 200px;
+  }
+
+  .microwave .door {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    background-color: grey;
+    height: 190px;
+    width: 220px;
+  }
+
+  .knob {
+    position: absolute;
+    right: 20px;
+    height: 35px;
+    width: 35px;
+    background-color: grey;
+    border-radius: 50px;
+  }
+  .knob::before {
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 10px;
+    background-color: black;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .knob:hover {
+    cursor: pointer;
+  }
+
+  .knob.timer {
+    top: 20px;
+  }
+
+  .knob.power {
+    top: 90px;
+  }
+
+  .label {
+    position: absolute;
+    color: grey;
+    font-size: 11px;
+    text-align: center;
+    width: 75px;
+    right: 0;
+    font-family: sans-serif;
+  }
+  .label.timer {
+    top: 60px;
+  }
+  .label.power {
+    top: 130px;
+  }
+
+  .button {
+    position: absolute;
+    bottom: 15px;
+    width: 55px;
+    height: 25px;
+    right: 10px;
+    background-color: grey;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 14px;
+    line-height: 25px;
+  }
+  .button:hover {
+    cursor: pointer;
+  }
+</style>
+
+<div class="microwave">
+  <div class="door" id="door"></div>
+  <div class="knob timer" id="timer"></div>
+  <div class="label timer">Timer</div>
+  <div class="knob power" id="power"></div>
+  <div class="label power">Power</div>
+  <div class="button" id="start" href="#">Start</div>
+</div>
+<div class="data">
+  <div class="timer">Timer: <span id="data-timer">0</span></div>
+  <div class="power">Power: <span id="data-power">1</span></div>
+</div>
+
+<script src='./script.js' type='text/javascript'></script>
